@@ -1,0 +1,1 @@
+<a class="btn-payrexx btn-payrexx-modal" href="https://gakbs.payrexx.com/pay?tid=6ec63858"><?php echo $body; ?></a>

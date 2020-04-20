@@ -1,0 +1,22 @@
+.btn-payrexx {
+    display: inline-block;
+    width: auto;
+    padding: 6px 20px 6px 20px;
+    font-size: 24px;
+    font-weight: 300;
+    white-space: inherit;
+    background-color: #99cc33;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 3px;
+    -webkit-transition: background-color 300ms ease-out;
+    -moz-transition: background-color 300ms ease-out;
+    -o-transition: background-color 300ms ease-out;
+    transition: background-color 300ms ease-out;
+}
+.btn-payrexx:focus, .btn-payrexx:hover {
+    background-color: #19b8f2;
+    color: #ffffff;
+}

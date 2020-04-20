@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function gk_custom_blocks_block_info() {
+  $blocks = array();
+  $blocks['spendenabo'] = array(
+    'info' => t('Knopf für Spendenabo'),
+  );
+  
+  return $blocks;
+}
+
+
+
+/**
+ * Implements hook_block_view().
+ */
+function gk_custom_blocks_block_view($delta='') {
+  $block = array();
+  
+  switch($delta) {
+    case 'spendenabo' :
+      $block['Subject'] = '';
+      $block['content'] = spendenabo_view();
+      break;
+  }
+  
+  return $block;
+}
+
+
+function spendenabo_view() {
+  $block = array();
+  $block['content'] = array(
+        '#markup' => theme('spendenabo_output', array(
+          'body' => 'Bezahlen',
+        )),
+        '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'gk_custom_blocks') . '/gk_custom_blocks.css',
+          ),
+         'js' => array(
+            array(
+                  'data' => 'https://media.payrexx.com/modal/v1/modal.min.js',
+                  'group' => JS_DEFAULT,
+                  'scope' => 'footer',
+                  'type' => 'external'
+                  ),
+            array(
+                  'data' => 'jQuery(".btn-payrexx-modal").payrexxModal();',
+                  'group' => JS_DEFAULT,
+                  'scope' => 'footer',
+                  'type' => 'inline'
+            )
+          ),
+        ),
+  );
+  return $block;
+}
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function gk_custom_blocks_theme() {
+  return array(
+    'spendenabo_output' => array(
+      'template' => 'block.abo', //ignore .tpl.php
+    ),
+  );
+}
