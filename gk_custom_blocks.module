@@ -35,7 +35,7 @@ function spendenabo_view() {
   $block = array();
   $block['content'] = array(
         '#markup' => theme('spendenabo_output', array(
-          'body' => 'Bezahlen',
+          'body' => 'Spenden-Abo kaufen',
         )),
         '#attached' => array(
           'css' => array(
